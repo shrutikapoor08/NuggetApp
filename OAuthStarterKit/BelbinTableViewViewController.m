@@ -50,7 +50,8 @@ extern int currentUserID;
              [belbinlist removeObject: [dictzero objectForKey:@"Most_suitable_Brole"]];
              [belbinlist removeObject: [dictzero objectForKey:@"Secondary_suitable_Brole"]];
              [belbinlist removeObject: [dictzero objectForKey:@"Third_suitable_Brole"]];
-
+ 
+             NSLog(@"%@", belbinlist);
              
              [belbinroles addObject:[dictzero objectForKey:@"Most_suitable_Brole"]];
              [belbinroles addObject:[dictzero objectForKey:@"Secondary_suitable_Brole"]];
@@ -167,10 +168,7 @@ extern int currentUserID;
     
     
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", currentUserID],@"currentID",[belbinroles objectAtIndex:0], @"mostsuitable", [belbinroles objectAtIndex:1], @"secondsuitable", [belbinroles objectAtIndex:2], @"thirdsuitable", [belbinroles objectAtIndex:8], @"mostunsuitable", [belbinroles objectAtIndex:7], @"secondunsuitable", [belbinroles objectAtIndex:6], @"thirdunsuitable",nil];
-    for (id key in [parameters allKeys]){
-        id obj = [parameters objectForKey: key];
-        NSLog(@"%@", obj);
-    }
+  
     
     //sending request to php layer
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -178,7 +176,7 @@ extern int currentUserID;
       parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
            // NSLog(@"%@", responseObject);
-           //   [self.tableView reloadData];
+      
                      }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:                                                     [NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -186,7 +184,7 @@ extern int currentUserID;
          }];
 
 
-
+           [self.tableView reloadData];
 
 }
 
