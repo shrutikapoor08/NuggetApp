@@ -11,7 +11,6 @@
 		426368D81839BB3D00D13698 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426368D71839BB3D00D13698 /* CoreLocation.framework */; };
 		426368DA1839BB4B00D13698 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426368D91839BB4B00D13698 /* SystemConfiguration.framework */; };
 		426368DC1839BB5400D13698 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426368DB1839BB5400D13698 /* MobileCoreServices.framework */; };
-		42636980183AEA4000D13698 /* Potato.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42636971183AEA4000D13698 /* Potato.jpg */; };
 		4263699A183AEAFD00D13698 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42636988183AEAFD00D13698 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4263699B183AEAFD00D13698 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4263698A183AEAFD00D13698 /* AFHTTPRequestOperationManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4263699C183AEAFD00D13698 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4263698C183AEAFD00D13698 /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -23,7 +22,6 @@
 		426369A2183AEAFD00D13698 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42636999183AEAFD00D13698 /* AFURLSessionManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		426369A4183AEC1700D13698 /* AfterLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426369A3183AEC1700D13698 /* AfterLogin.storyboard */; };
 		426369AA183AF16B00D13698 /* PickerVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 426369A9183AF16B00D13698 /* PickerVIew.m */; };
-		426369B3183C8B6C00D13698 /* CreateProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 426369B2183C8B6C00D13698 /* CreateProject.m */; };
 		42A2B9BF183C900800CA02DB /* TeamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2B9BE183C900800CA02DB /* TeamController.m */; };
 		42A2B9C4183C907800CA02DB /* BelbinTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2B9C1183C907800CA02DB /* BelbinTableViewViewController.m */; };
 		42A2B9C5183C907800CA02DB /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2B9C3183C907800CA02DB /* ContactCell.m */; };
@@ -33,6 +31,8 @@
 		42A2B9D5183C90E300CA02DB /* SkillDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2B9CF183C90E300CA02DB /* SkillDetailController.m */; };
 		42A2B9D6183C90E300CA02DB /* SkillsEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2B9D1183C90E300CA02DB /* SkillsEditController.m */; };
 		42A2B9D7183C90E300CA02DB /* SkillsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2B9D3183C90E300CA02DB /* SkillsView.m */; };
+		42A2B9DC183C91CA00CA02DB /* CreateProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2B9D9183C91CA00CA02DB /* CreateProject.m */; };
+		42A2B9DD183C91CA00CA02DB /* Potato.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42A2B9DA183C91CA00CA02DB /* Potato.jpg */; };
 		659410A21353A25700826837 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659410A11353A25700826837 /* UIKit.framework */; };
 		659410A41353A25700826837 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659410A31353A25700826837 /* Foundation.framework */; };
 		659410A61353A25700826837 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659410A51353A25700826837 /* CoreGraphics.framework */; };
@@ -84,7 +84,6 @@
 		426368D71839BB3D00D13698 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		426368D91839BB4B00D13698 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		426368DB1839BB5400D13698 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		42636971183AEA4000D13698 /* Potato.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Potato.jpg; path = ../../Nugget/Nugget/Nugget/Potato.jpg; sourceTree = "<group>"; };
 		42636987183AEAFD00D13698 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		42636988183AEAFD00D13698 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		42636989183AEAFD00D13698 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -107,8 +106,6 @@
 		426369A3183AEC1700D13698 /* AfterLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AfterLogin.storyboard; sourceTree = "<group>"; };
 		426369A8183AF16B00D13698 /* PickerVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerVIew.h; sourceTree = "<group>"; };
 		426369A9183AF16B00D13698 /* PickerVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerVIew.m; sourceTree = "<group>"; };
-		426369B1183C8B6C00D13698 /* CreateProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateProject.h; path = ../../NuggetApp/OAuthStarterKit/CreateProject.h; sourceTree = "<group>"; };
-		426369B2183C8B6C00D13698 /* CreateProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateProject.m; path = ../../NuggetApp/OAuthStarterKit/CreateProject.m; sourceTree = "<group>"; };
 		42A2B9BD183C900700CA02DB /* TeamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamController.h; sourceTree = "<group>"; };
 		42A2B9BE183C900800CA02DB /* TeamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamController.m; sourceTree = "<group>"; };
 		42A2B9C0183C907800CA02DB /* BelbinTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BelbinTableViewViewController.h; sourceTree = "<group>"; };
@@ -127,6 +124,10 @@
 		42A2B9D1183C90E300CA02DB /* SkillsEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillsEditController.m; sourceTree = "<group>"; };
 		42A2B9D2183C90E300CA02DB /* SkillsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillsView.h; sourceTree = "<group>"; };
 		42A2B9D3183C90E300CA02DB /* SkillsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillsView.m; sourceTree = "<group>"; };
+		42A2B9D8183C91CA00CA02DB /* CreateProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProject.h; sourceTree = "<group>"; };
+		42A2B9D9183C91CA00CA02DB /* CreateProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProject.m; sourceTree = "<group>"; };
+		42A2B9DA183C91CA00CA02DB /* Potato.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Potato.jpg; sourceTree = "<group>"; };
+		42A2B9DB183C91CA00CA02DB /* ProfileTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTabView.h; sourceTree = "<group>"; };
 		6594109D1353A25700826837 /* OAuthStarterKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OAuthStarterKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		659410A11353A25700826837 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		659410A31353A25700826837 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -342,6 +343,10 @@
 		659411111353A61B00826837 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42A2B9D8183C91CA00CA02DB /* CreateProject.h */,
+				42A2B9D9183C91CA00CA02DB /* CreateProject.m */,
+				42A2B9DA183C91CA00CA02DB /* Potato.jpg */,
+				42A2B9DB183C91CA00CA02DB /* ProfileTabView.h */,
 				42A2B9CC183C90E300CA02DB /* SkillCell.h */,
 				42A2B9CD183C90E300CA02DB /* SkillCell.m */,
 				42A2B9CE183C90E300CA02DB /* SkillDetailController.h */,
@@ -363,9 +368,6 @@
 				426369A8183AF16B00D13698 /* PickerVIew.h */,
 				426369A9183AF16B00D13698 /* PickerVIew.m */,
 				426369A3183AEC1700D13698 /* AfterLogin.storyboard */,
-				42636971183AEA4000D13698 /* Potato.jpg */,
-				426369B1183C8B6C00D13698 /* CreateProject.h */,
-				426369B2183C8B6C00D13698 /* CreateProject.m */,
 				9D951F6E1817C3430010C060 /* AppDelegate.h */,
 				9D30FF951829A38A006EB8D3 /* MainViewController.h */,
 				659410C41353A39900826837 /* OAuthLoginView.h */,
@@ -492,10 +494,10 @@
 				659410E41353A39900826837 /* OAuthLoginView.xib in Resources */,
 				659410F21353A39900826837 /* linkedInBluebutton.png in Resources */,
 				659410F31353A39900826837 /* linkedInBluebutton-highlight.png in Resources */,
-				42636980183AEA4000D13698 /* Potato.jpg in Resources */,
 				659411171353AE6800826837 /* Icon-72.png in Resources */,
 				659411181353AE6800826837 /* Icon.png in Resources */,
 				659411191353AE6800826837 /* Icon@2x.png in Resources */,
+				42A2B9DD183C91CA00CA02DB /* Potato.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,10 +535,10 @@
 				659410EF1353A39900826837 /* OAConsumer.m in Sources */,
 				659410F01353A39900826837 /* OACall.m in Sources */,
 				659410F11353A39900826837 /* OAAttachment.m in Sources */,
-				426369B3183C8B6C00D13698 /* CreateProject.m in Sources */,
 				659410F41353A39900826837 /* JSONKit.m in Sources */,
 				9D30FF971829A38A006EB8D3 /* MainViewController.m in Sources */,
 				9DCF6E7118224DAD008FD568 /* StoryViewController.m in Sources */,
+				42A2B9DC183C91CA00CA02DB /* CreateProject.m in Sources */,
 				659411031353A41600826837 /* Base64Transcoder.c in Sources */,
 				42A2B9C5183C907800CA02DB /* ContactCell.m in Sources */,
 				42A2B9BF183C900800CA02DB /* TeamController.m in Sources */,
