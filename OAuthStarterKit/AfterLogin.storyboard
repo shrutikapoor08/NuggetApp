@@ -805,7 +805,6 @@
     </scenes>
     <resources>
         <image name="Potato.jpg" width="259" height="194"/>
-        <image name="Potato.jpg" width="259" height="194"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
