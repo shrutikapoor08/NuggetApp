@@ -14,6 +14,7 @@
 @end
 
 @implementation TeamController
+@synthesize responseObject = _responseObject;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +29,7 @@
 {
     [super viewDidLoad];
     //NSLog(@"%@", responseObject);
-    team = (NSArray *) responseObject;
+    team = (NSArray *) _responseObject;
     //NSDictionary *dictzero = [jsonDict objectAtIndex:0];
    // _emailLabel.text = [dictzero objectForKey:@"Email_address"];
 

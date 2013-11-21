@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "CreateProject.h"
 
 #define BELBIN 0
 
@@ -22,6 +23,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *pickerViewContainer;
 @property (strong, nonatomic) IBOutlet UITextField *leaderBRole;
+@property (strong, nonatomic) CreateProject *cp;
 
 
 

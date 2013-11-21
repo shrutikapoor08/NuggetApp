@@ -8,7 +8,7 @@
 
 #import "CreateProject.h"
 #import "AFNetworking.h"
-#import "CustomTableViewViewController.h"
+#import "TeamController.h"
 
 @implementation CreateProject
 @synthesize pleader = _pleader;
@@ -24,29 +24,6 @@
         // Initialization code
     }
     return self;
-}
-
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:_expertises.text, @"expertises", _psize.text, @"teamSize",_leaderrole.text , @"leaderBRole", nil];
-    //sending request to php layer
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/creating_project.php?format=json"]
-      parameters:parameters
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"%@TEAMTEAMTEAM", responseObject);
-             
-             if ([segue.identifier isEqualToString:@"getTeam"]) {
-                 CustomTableViewViewController *vc = [segue destinationViewController];
-             }
-             
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-             [av show];
-         }];
 }
 
 

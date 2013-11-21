@@ -18,7 +18,6 @@
 @property (nonatomic, strong) IBOutlet UITextField *psize;
 @property (nonatomic, strong) IBOutlet UITextField *leaderrole;
 @property (nonatomic, strong) IBOutlet UITextField *expertises;
-- (IBAction)getTeam:(id)sender;
 - (IBAction)returnKey:(id)sender;
 
 @end

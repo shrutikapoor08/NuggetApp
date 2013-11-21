@@ -8,11 +8,12 @@
 
 #import "PickerVIew.h"
 #import "AFNetworking.h"
-#import "CustomTableViewViewController.h"
+#import "TeamController.h"
 
 @implementation PickerVIew
 @synthesize pickerViewContainer;
 @synthesize leaderBRole = _leaderBRole;
+@synthesize cp = _cp;
 
 - (void)didReceiveMemoryWarning
 {
@@ -116,6 +117,29 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //NSLog(@"prepareforSegue");
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:_cp.expertises.text, @"Expertises", _cp.psize.text, @"Team_size",_cp.leaderrole.text , @"Belbin_role", nil];
+    //sending request to php layer
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/creating_project.php?format=json"]
+      parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"%@TEAMTEAMTEAM", responseObject);
+             
+             if ([segue.identifier isEqualToString:@"getTeam"]) {
+                 TeamController *vc = [segue destinationViewController];
+                 vc.responseObject = responseObject;
+             }
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [av show];
+         }];
 }
 
 
