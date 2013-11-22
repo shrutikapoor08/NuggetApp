@@ -10,9 +10,8 @@
 
 @interface TeamController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-   
-    NSArray *team;
     IBOutlet UITableView *teamMembersView;
 }
-@property (nonatomic, strong) id responseObject;
+@property (nonatomic, strong) NSMutableArray *team;
+
 @end

@@ -9,21 +9,10 @@
 #import "TeamController.h"
 #import "ContactCell.h"
 
-@interface TeamController ()
-
-@end
 
 @implementation TeamController
-@synthesize responseObject = _responseObject;
+@synthesize team = _team;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -31,15 +20,23 @@
    
     //NSDictionary *dictzero = [jsonDict objectAtIndex:0];
    // _emailLabel.text = [dictzero objectForKey:@"Email_address"];
-
+     NSLog(@"%@", _team);
+    NSLog(@"viewdidload");
     
 
 }
 
+
+
 - (void) viewWillAppear:(BOOL)animated
 {
-    NSLog(@"%@", _responseObject);
-    team = (NSArray *) _responseObject;
+    [super viewWillAppear:animated];
+	//[TeamController viewWillAppear:animated];
+    
+    NSLog(@"%@", _team);
+    NSLog(@"viewwillappear");
+    [teamMembersView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,14 +55,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return [team count];
+    return [_team count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     //view custom skillcell
-    NSDictionary *currentmember = [team objectAtIndex:indexPath.row];
     static NSString *ccIdentifier = @"Cell";
     
     ContactCell *cell = [tableView dequeueReusableCellWithIdentifier:ccIdentifier];
@@ -76,7 +72,7 @@
     }
     
     cell.skillLabel.text = @"skillskillskill";
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",[currentmember objectForKey:@"Given_name"], [currentmember objectForKey:@"Family_name"]];
+    cell.nameLabel.text = [_team objectAtIndex:indexPath.row];
     cell.thumbnailImageView.image = [UIImage imageNamed:@"Potato.jpg"];
     
     

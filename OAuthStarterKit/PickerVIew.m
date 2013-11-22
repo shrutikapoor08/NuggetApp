@@ -118,6 +118,7 @@
     return self;
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"prepareforSegue");
@@ -134,10 +135,20 @@
       parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"%@TEAMTEAMTEAM", responseObject);
+            
              
              if ([segue.identifier isEqualToString:@"getTeam"]) {
                  TeamController *vc = [segue destinationViewController];
-                 vc.responseObject = responseObject;
+                 vc.team = [[NSMutableArray alloc] init];
+                 NSArray *jsonDict = (NSArray *) responseObject;
+                 for (int i = 0; i < [jsonDict count]; i++)
+                 {
+                     NSDictionary *dictzero = [jsonDict objectAtIndex:i];
+                     [vc.team addObject:[NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]]];
+                     
+                 }
+                 NSLog(@"segue: %@", vc.team);
+                 [vc viewWillAppear:YES];
              }
              
          }
