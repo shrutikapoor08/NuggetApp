@@ -23,7 +23,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *pickerViewContainer;
 @property (strong, nonatomic) IBOutlet UITextField *leaderBRole;
-@property (strong, nonatomic) CreateProject *cp;
+@property (strong, nonatomic) IBOutlet CreateProject *cp;
 
 
 

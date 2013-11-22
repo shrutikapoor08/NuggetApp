@@ -46,11 +46,10 @@
     [arrayBelbin addObject:@"Monitor"];
     [arrayBelbin addObject:@"Team Worker"];
     [arrayBelbin addObject:@"Implementor"];
+    
 
     
     pickerViewContainer.frame = CGRectMake(0, 199, 320, 261);
-    
-
 
 }
 
@@ -121,8 +120,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //NSLog(@"prepareforSegue");
+    NSLog(@"prepareforSegue");
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:_cp.expertises.text, @"Expertises", _cp.psize.text, @"Team_size",_cp.leaderrole.text , @"Belbin_role", nil];
+    
+    for (id key in [parameters allKeys]){
+        id obj = [parameters objectForKey: key];
+        NSLog(@"%@", obj);
+    }
+    
     //sending request to php layer
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"http://localhost:8888/creating_project.php?format=json"]

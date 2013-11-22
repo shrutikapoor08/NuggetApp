@@ -13,7 +13,6 @@
 @implementation CreateProject
 @synthesize pleader = _pleader;
 @synthesize psize = _psize;
-@synthesize ptitle = _ptitle;
 @synthesize pname = _pname;
 @synthesize leaderrole = _leaderrole;
 

@@ -28,13 +28,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //NSLog(@"%@", responseObject);
-    team = (NSArray *) _responseObject;
+   
     //NSDictionary *dictzero = [jsonDict objectAtIndex:0];
    // _emailLabel.text = [dictzero objectForKey:@"Email_address"];
 
     
 
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    NSLog(@"%@", _responseObject);
+    team = (NSArray *) _responseObject;
 }
 
 - (void)didReceiveMemoryWarning

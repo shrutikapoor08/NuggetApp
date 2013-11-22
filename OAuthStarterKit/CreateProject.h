@@ -13,7 +13,6 @@
     
 }
 @property (nonatomic, strong) IBOutlet UITextField *pname;
-@property (nonatomic, strong) IBOutlet UITextField *ptitle;
 @property (nonatomic, strong) IBOutlet UITextField *pleader;
 @property (nonatomic, strong) IBOutlet UITextField *psize;
 @property (nonatomic, strong) IBOutlet UITextField *leaderrole;
