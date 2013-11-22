@@ -131,7 +131,7 @@
     
     //sending request to php layer
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/creating_project.php?format=json"]
+    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/creating_project2.php?format=json"]
       parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"%@TEAMTEAMTEAM", responseObject);
