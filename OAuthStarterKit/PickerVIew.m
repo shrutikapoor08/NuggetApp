@@ -47,12 +47,9 @@
     [arrayBelbin addObject:@"Team Worker"];
     [arrayBelbin addObject:@"Implementor"];
     
-
     
     pickerViewContainer.frame = CGRectMake(0, 199, 320, 261);
-
 }
-
 
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
@@ -63,6 +60,16 @@
         return [arrayBelbin count];
 
 }
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+        return [arrayBelbin objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    NSLog(@"%@", [arrayBelbin objectAtIndex:row]);
+    _cp.leaderrole.text = [arrayBelbin objectAtIndex:row];
+}
+
 
 
 - (IBAction)Show:(id)sender {
@@ -80,16 +87,6 @@
     [UIView commitAnimations];
 }
 
-
-
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row{
-        return [arrayBelbin objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row {
-    _leaderBRole.text = [arrayBelbin objectAtIndex:[pickerView selectedRowInComponent:0]];
-}
 
 
 - (IBAction)showBtn:(id)sender {
@@ -161,7 +158,6 @@
 
 - (void)viewDidUnload
 {
-    [self setLeaderBRole:nil];
     [self setPickerViewContainer:nil];
     [super viewDidUnload];
     

@@ -16,14 +16,13 @@
 
 <UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>{
     
-    IBOutlet UIPickerView *BelbinPicker;
-    
     NSMutableArray *arrayBelbin;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *pickerViewContainer;
 @property (strong, nonatomic) IBOutlet UITextField *leaderBRole;
 @property (strong, nonatomic) IBOutlet CreateProject *cp;
+@property (strong, nonatomic) IBOutlet UIPickerView *BelbinPicker;
 
 
 
