@@ -39,13 +39,14 @@
     [super viewDidLoad];
     
     arrayBelbin = [[NSMutableArray alloc] init];
-    [arrayBelbin addObject:@"Plant"];
-    [arrayBelbin addObject:@"Resource Investigator"];
-    [arrayBelbin addObject:@"Coordinator"];
-    [arrayBelbin addObject:@"Shaper"];
-    [arrayBelbin addObject:@"Monitor"];
-    [arrayBelbin addObject:@"Team Worker"];
-    [arrayBelbin addObject:@"Implementor"];
+    [arrayBelbin addObject:@"PLANT"];
+    [arrayBelbin addObject:@"RESOURCE INVESTIGATOR"];
+    [arrayBelbin addObject:@"COORDINATOR"];
+    [arrayBelbin addObject:@"SHAPER"];
+    [arrayBelbin addObject:@"MONITOR"];
+    [arrayBelbin addObject:@"TEAM WORKER"];
+    [arrayBelbin addObject:@"IMPLEMENTOR"];
+    [arrayBelbin addObject:@"SPECIALIST"];
     
     
     pickerViewContainer.frame = CGRectMake(0, 199, 320, 261);

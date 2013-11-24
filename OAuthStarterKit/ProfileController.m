@@ -61,8 +61,12 @@ extern int currentUserID;
              NSDictionary *dictzero = [jsonDict objectAtIndex:0];
              _emailLabel.text = [dictzero objectForKey:@"Email_address"];
              _nameLabel.text = [NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]];
-             _topBelbinLabel.text = [dictzero objectForKey:@"Most_suitable_Brole"];
-             //_skill1RatingLabel.text = [NSString stringWithFormat:@"%@",[dictzero objectForKey:@"Expertise_1"]]; //still a number.
+             
+             NSString *newLine = @"\n";
+             NSString *belbinroles = [NSString stringWithFormat:@"%@,\n%@,\n%@",[dictzero objectForKey:@"Most_suitable_Brole"], [dictzero objectForKey:@"Secondary_suitable_Brole"], [dictzero objectForKey:@"Third_suitable_Brole"]];
+             belbinroles = [belbinroles stringByReplacingOccurrencesOfString:@"\\n" withString:newLine];
+             
+             _topBelbinLabel.text = belbinroles;
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -73,11 +77,26 @@ extern int currentUserID;
     [manager GET:[NSString stringWithFormat:@"http://localhost:8888/gettopskill.php?format=json"]
       parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             //NSLog(@"%@", responseObject);
              NSArray *jsonDict = (NSArray *) responseObject;
-             //NSLog (@"ARR %@", jsonDict);
-             NSDictionary *dictzero = [jsonDict objectAtIndex:0];
-             _skill1RatingLabel.text = [NSString stringWithFormat:@"%@",[dictzero objectForKey:@"Expertise_name"]];
+             NSString *skills;
+             skills = [[NSString alloc]init];
+             NSString *newLine = @"\n";
+             for (int x = 0; x < [jsonDict count]; x++)
+             {
+                 NSDictionary *dictzero = [jsonDict objectAtIndex:x];
+                 if (x == 3) break;
+                 else
+                 {
+                     if (x>0)
+                     {
+                        skills = [skills stringByAppendingString:@", \n"];
+                     }
+                     skills = [skills stringByAppendingString:[NSString stringWithFormat:@"%@", [dictzero objectForKey:@"Expertise_Name"]]];
+                     
+                 }
+             }
+             skills = [skills stringByReplacingOccurrencesOfString:@"\\n" withString:newLine];
+             _skill1RatingLabel.text = skills;
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

@@ -15,13 +15,14 @@
 @synthesize psize = _psize;
 @synthesize pname = _pname;
 @synthesize leaderrole = _leaderrole;
+@synthesize expertises = _expertises;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-    }
+            }
     return self;
 }
 

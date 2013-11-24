@@ -11,6 +11,6 @@
 @interface ContactCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *skillLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
+@property (nonatomic, strong) IBOutlet UILabel *belbinLabel;
 
 @end

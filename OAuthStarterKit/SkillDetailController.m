@@ -103,7 +103,7 @@ extern int currentUserID;
     
     
     cell.nameLabel.text = [contacts objectAtIndex:indexPath.row];
-    cell.thumbnailImageView.image = [UIImage imageNamed:@"Potato.jpg"]; //change later to object at index
+    cell.belbinLabel.text = @"Belbin";
     cell.skillLabel.text = @"Skill1 (1), Skill2 (2), Skill3 (3), Skill4 (4), Skill (5)"; //change later from new mutable array
     
     return cell;

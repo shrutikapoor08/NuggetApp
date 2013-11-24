@@ -73,7 +73,7 @@
     
     cell.skillLabel.text = @"skillskillskill";
     cell.nameLabel.text = [_team objectAtIndex:indexPath.row];
-    cell.thumbnailImageView.image = [UIImage imageNamed:@"Potato.jpg"];
+    cell.belbinLabel.text = @"Belbin";
     
     
     

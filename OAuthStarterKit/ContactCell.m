@@ -11,7 +11,7 @@
 @implementation ContactCell
 @synthesize nameLabel = _nameLabel;
 @synthesize skillLabel = _skillLabel;
-@synthesize thumbnailImageView = _thumbnailImageView;
+@synthesize belbinLabel = _belbinLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
