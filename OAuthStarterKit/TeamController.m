@@ -8,6 +8,7 @@
 
 #import "TeamController.h"
 #import "ContactCell.h"
+#import "ProfileController.h"
 #import "AFNetworking.h"
 
 
@@ -35,6 +36,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"profile"]) {
+        NSIndexPath *selectedRowIndex = [teamMembersView indexPathForSelectedRow];
+        ProfileController *vc = [segue destinationViewController];
+        vc.currID = [[_team objectAtIndex:selectedRowIndex.row] intValue];
+        NSLog(@"%i",vc.currID);
+        [vc viewWillAppear:YES];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

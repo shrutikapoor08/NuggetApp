@@ -14,5 +14,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *emailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *skill1RatingLabel;
 @property (nonatomic, strong) IBOutlet UILabel *topBelbinLabel;
+@property int currID;
 @end
 

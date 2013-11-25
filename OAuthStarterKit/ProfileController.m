@@ -17,6 +17,7 @@ extern int currentUserID;
 @synthesize nameLabel = _nameLabel;
 @synthesize topBelbinLabel = _topBelbinLabel;
 @synthesize skill1RatingLabel = _skill1RatingLabel;
+@synthesize currID;
 
 - (void)didReceiveMemoryWarning
 {
@@ -49,8 +50,12 @@ extern int currentUserID;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if (currID = 0)
+    {
+        currID = currentUserID;
+    }
     [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", currentUserID],@"currentID", nil];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", currID],@"currentID", nil];
     //sending request to php layer
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"http://localhost:8888/getprofile.php?format=json"]
