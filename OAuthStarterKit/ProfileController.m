@@ -50,7 +50,7 @@ extern int currentUserID;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (currID = 0)
+    if (currID == 0)
     {
         currID = currentUserID;
     }
