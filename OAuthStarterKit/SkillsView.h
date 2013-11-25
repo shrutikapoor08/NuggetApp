@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SkillsView : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SkillsView : UIViewController <UITableViewDataSource, UITableViewDelegate,UIAlertViewDelegate>
 
 {
     NSMutableArray *skills;
@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *topbelbin;
 @property (nonatomic, copy) NSString *cname;
 - (IBAction)Save:(id)sender;
+- (IBAction)Help:(id)sender;
 
 @end
 

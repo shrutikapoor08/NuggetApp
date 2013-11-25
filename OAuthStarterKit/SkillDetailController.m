@@ -50,10 +50,10 @@ extern int currentUserID;
              for (int i = 0; i < [jsonDict count]; i++)
              {
                  NSDictionary *dictzero = [jsonDict objectAtIndex:i];
-                 [contacts addObject:[NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]]];
+                 [contacts addObject:[dictzero objectForKey:@"Member_ID"]];
                  
              }
-             NSLog(@"%@", contacts);
+             //NSLog(@"%@", contacts);
              [self.tableView reloadData];
              
          }
@@ -100,12 +100,54 @@ extern int currentUserID;
         
     }
     
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[contacts objectAtIndex:indexPath.row],@"currentID", nil];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/getprofile.php?format=json"]
+      parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSArray *jsonDict = (NSArray *) responseObject;
+             NSDictionary *dictzero = [jsonDict objectAtIndex:0];
+             cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]];
+             
+             NSString *belbinroles = [NSString stringWithFormat:@"%@, %@",[dictzero objectForKey:@"Most_suitable_Brole"], [dictzero objectForKey:@"Secondary_suitable_Brole"]];
+             cell.belbinLabel.text = belbinroles;
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [av show];
+         }];
     
     
-    cell.nameLabel.text = [contacts objectAtIndex:indexPath.row];
-    cell.belbinLabel.text = @"Belbin";
-    cell.skillLabel.text = @"Skill1 (1), Skill2 (2), Skill3 (3), Skill4 (4), Skill (5)"; //change later from new mutable array
+    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/gettopskill.php?format=json"]
+      parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSArray *jsonDict = (NSArray *) responseObject;
+             NSString *skills;
+             skills = [[NSString alloc]init];
+             for (int x = 0; x < [jsonDict count]; x++)
+             {
+                 NSDictionary *dictzero = [jsonDict objectAtIndex:x];
+                 if (x == 3) break;
+                 else
+                 {
+                     if (x>0)
+                     {
+                         skills = [skills stringByAppendingString:@", "];
+                     }
+                     skills = [skills stringByAppendingString:[NSString stringWithFormat:@"%@", [dictzero objectForKey:@"Expertise_Name"]]];
+                     
+                 }
+             }
+             cell.skillLabel.text = skills;
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [av show];
+         }];
+
     
+
     return cell;
 
 }

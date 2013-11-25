@@ -199,6 +199,13 @@ extern int currentUserID;
     
 }
 
+- (IBAction)Help:(id)sender
+{
+    UIAlertView *help = [[UIAlertView alloc] initWithTitle:@"Rating as follows:" message:@"1 - Novice \n 2 - Advanced Beginner \n 3 - Competent \n 4 - Proficient \n 5 - Expert" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    help.alertViewStyle = UIAlertViewStyleDefault;
+    [help show];
+}
+
 
 
 

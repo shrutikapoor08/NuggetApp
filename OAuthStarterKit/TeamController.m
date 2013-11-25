@@ -82,7 +82,15 @@
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSArray *jsonDict = (NSArray *) responseObject;
              NSDictionary *dictzero = [jsonDict objectAtIndex:0];
-             cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]];
+             if (indexPath.row == 0)
+             {
+                 cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@ - lead",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]];
+             }
+             else
+             {
+                 cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]];
+             }
+             
              
              NSString *belbinroles = [NSString stringWithFormat:@"%@, %@",[dictzero objectForKey:@"Most_suitable_Brole"], [dictzero objectForKey:@"Secondary_suitable_Brole"]];
              cell.belbinLabel.text = belbinroles;
