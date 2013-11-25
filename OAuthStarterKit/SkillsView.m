@@ -30,13 +30,13 @@ extern int currentUserID;
 -(void) viewWillAppear:(BOOL)animated
 {
     skills = [[NSMutableArray alloc] init];
-    NSArray *names = [_cname componentsSeparatedByString: @" "];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[names objectAtIndex:0],@"first", [names objectAtIndex:1], @"last", nil];
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:_cname, @"currentID", nil];
     
     
     //get contact details
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/getcontactprofile.php?format=json"]
+    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/getprofile.php?format=json"]
       parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              //NSLog(@"%@", responseObject);
@@ -46,14 +46,12 @@ extern int currentUserID;
              _email.text = [dictzero objectForKey:@"Email_address"];
              _name.text = [NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]];
              _topbelbin.text = [dictzero objectForKey:@"Most_suitable_Brole"];
-             _memberID = [dictzero objectForKey:@"Member_ID"];
              
              
              //get  contact skills
-             NSDictionary *parameters2 = [NSDictionary dictionaryWithObjectsAndKeys:_memberID, @"currentID", nil];
              AFHTTPRequestOperationManager *manager2 = [AFHTTPRequestOperationManager manager];
              [manager2 GET:[NSString stringWithFormat:@"http://localhost:8888/getskills.php?format=json"]
-                parameters:parameters2
+                parameters:parameters
                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                        NSArray *jsonDict = (NSArray *) responseObject;
                        for (int i = 0; i < [jsonDict count]; i++)
@@ -114,7 +112,7 @@ extern int currentUserID;
     
     cell.skillLabel.text = [skills objectAtIndex:indexPath.row];
     
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[skills objectAtIndex:indexPath.row],@"skillname", [NSString stringWithFormat:@"%i", currentUserID], @"rater", _memberID, @"ratee",nil];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[skills objectAtIndex:indexPath.row],@"skillname", [NSString stringWithFormat:@"%i", currentUserID], @"rater", _cname, @"ratee",nil];
     
    // for (id key in [parameters allKeys]){
  //       id obj = [parameters objectForKey: key];
@@ -159,7 +157,7 @@ extern int currentUserID;
     //saves endorsement here
     //for each skill in [skills]...search in endorsements and update member_skills table
     for (SkillCell *skillc in skillsTableView.visibleCells) {
-        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", currentUserID], @"rater", _memberID, @"ratee", skillc.skillLabel.text,@"skillname", skillc.resultLabel.text, @"rating", nil];
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", currentUserID], @"rater", _cname, @"ratee", skillc.skillLabel.text,@"skillname", skillc.resultLabel.text, @"rating", nil];
         
         //delete and create new entry
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

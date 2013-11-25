@@ -49,6 +49,7 @@ extern int currentUserID;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", currentUserID],@"currentID", nil];
     //sending request to php layer
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

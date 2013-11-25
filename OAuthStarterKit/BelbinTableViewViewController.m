@@ -80,6 +80,7 @@ extern int currentUserID;
     //create edit button in navigation bar
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(EditTable:)];
 	[self.navigationItem setRightBarButtonItem:addButton];
+     [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
 
 }
 

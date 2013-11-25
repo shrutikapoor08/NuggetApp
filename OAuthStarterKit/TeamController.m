@@ -8,6 +8,7 @@
 
 #import "TeamController.h"
 #import "ContactCell.h"
+#import "AFNetworking.h"
 
 
 @implementation TeamController
@@ -17,12 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
-    //NSDictionary *dictzero = [jsonDict objectAtIndex:0];
-   // _emailLabel.text = [dictzero objectForKey:@"Email_address"];
-     NSLog(@"%@", _team);
-    NSLog(@"viewdidload");
-    
 
 }
 
@@ -31,10 +26,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-	//[TeamController viewWillAppear:animated];
-    
-    NSLog(@"%@", _team);
-    NSLog(@"viewwillappear");
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
     [teamMembersView reloadData];
 
 }
@@ -71,9 +63,52 @@
         
     }
     
-    cell.skillLabel.text = @"skillskillskill";
-    cell.nameLabel.text = [_team objectAtIndex:indexPath.row];
-    cell.belbinLabel.text = @"Belbin";
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[_team objectAtIndex:indexPath.row],@"currentID", nil];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/getprofile.php?format=json"]
+      parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSArray *jsonDict = (NSArray *) responseObject;
+             NSDictionary *dictzero = [jsonDict objectAtIndex:0];
+             cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]];
+             
+             NSString *belbinroles = [NSString stringWithFormat:@"%@, %@",[dictzero objectForKey:@"Most_suitable_Brole"], [dictzero objectForKey:@"Secondary_suitable_Brole"]];
+             cell.belbinLabel.text = belbinroles;
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [av show];
+         }];
+    
+    
+    [manager GET:[NSString stringWithFormat:@"http://localhost:8888/gettopskill.php?format=json"]
+      parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSArray *jsonDict = (NSArray *) responseObject;
+             NSString *skills;
+             skills = [[NSString alloc]init];
+             for (int x = 0; x < [jsonDict count]; x++)
+             {
+                 NSDictionary *dictzero = [jsonDict objectAtIndex:x];
+                 if (x == 3) break;
+                 else
+                 {
+                     if (x>0)
+                     {
+                         skills = [skills stringByAppendingString:@", "];
+                     }
+                     skills = [skills stringByAppendingString:[NSString stringWithFormat:@"%@", [dictzero objectForKey:@"Expertise_Name"]]];
+                     
+                 }
+             }
+             cell.skillLabel.text = skills; 
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [av show];
+         }];
+
+
     
     
     

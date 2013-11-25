@@ -51,6 +51,7 @@ extern int currentUserID;
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
     //pull out skills data here
     
     skillset = [[NSMutableArray alloc] init];
@@ -200,7 +201,6 @@ extern int currentUserID;
         [manager GET:[NSString stringWithFormat:@"http://localhost:8888/insertskill.php?format=json"]
           parameters:parameters
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                 //NSLog(@"%@", responseObject);
              }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

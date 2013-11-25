@@ -37,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
     
     arrayBelbin = [[NSMutableArray alloc] init];
     [arrayBelbin addObject:@"PLANT"];
@@ -142,7 +143,7 @@
                  for (int i = 0; i < [jsonDict count]; i++)
                  {
                      NSDictionary *dictzero = [jsonDict objectAtIndex:i];
-                     [vc.team addObject:[NSString stringWithFormat:@"%@ %@",[dictzero objectForKey:@"Given_name"], [dictzero objectForKey:@"Family_name"]]];
+                     [vc.team addObject:[dictzero objectForKey:@"Member_ID"]];
                      
                  }
                  NSLog(@"segue: %@", vc.team);

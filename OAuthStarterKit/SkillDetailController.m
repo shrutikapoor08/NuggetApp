@@ -31,7 +31,7 @@ extern int currentUserID;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
     
     contacts = [[NSMutableArray alloc] init];
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", currentUserID],@"currentID", _passedval,@"skillname",nil];
