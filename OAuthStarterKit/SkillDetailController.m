@@ -9,6 +9,7 @@
 #import "SkillDetailController.h"
 #import "ContactCell.h"
 #import "AFNetworking.h"
+#import "ProfileController.h"
 extern int currentUserID;
 
 @interface SkillDetailController ()
@@ -64,6 +65,17 @@ extern int currentUserID;
     
     
     
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"profile"]) {
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+        ProfileController *pc = [segue destinationViewController];
+        pc.currID = [[contacts objectAtIndex:selectedRowIndex.row] intValue];
+        //NSLog(@"%i",vc.currID);
+        [pc viewWillAppear:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
