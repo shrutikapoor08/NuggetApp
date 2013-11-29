@@ -15,6 +15,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *skillLabel;
 @property (nonatomic, strong) IBOutlet UILabel *resultLabel;
 @property (nonatomic, strong) IBOutlet UISlider *rating;
+@property NSInteger ratee;
 - (IBAction)Scroll:(id)sender;
 
 

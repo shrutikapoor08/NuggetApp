@@ -5,28 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>3144D4C7-47BD-468F-8759-303C14CC5B7D</string>
+	<string>6D918B1F-0A26-4069-93DA-0AE55BF54C91</string>
 	<key>IDESourceControlProjectName</key>
 	<string>OAuthStarterKit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>11A32F02-60CD-4E21-8469-2B48EE3FDC67</key>
-		<string>https://github.com/akatigbak/Nugget.git</string>
 		<key>501513D2-7C0A-4D9C-91DB-7FBA6DFE7B39</key>
 		<string>ssh://github.com/akatigbak/NuggetApp.git</string>
-		<key>8DDC5BCC-5810-494B-AAD3-6B4595FE1685</key>
-		<string>https://github.com/shrutikapoor08/ECE490.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>OAuthStarterKit.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>11A32F02-60CD-4E21-8469-2B48EE3FDC67</key>
-		<string>../../../Nugget</string>
 		<key>501513D2-7C0A-4D9C-91DB-7FBA6DFE7B39</key>
 		<string>../..</string>
-		<key>8DDC5BCC-5810-494B-AAD3-6B4595FE1685</key>
-		<string>../../../NuggetApp</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/akatigbak/NuggetApp.git</string>
@@ -36,22 +28,6 @@
 	<string>501513D2-7C0A-4D9C-91DB-7FBA6DFE7B39</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8DDC5BCC-5810-494B-AAD3-6B4595FE1685</string>
-			<key>IDESourceControlWCCName</key>
-			<string>ECE490</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>11A32F02-60CD-4E21-8469-2B48EE3FDC67</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Nugget </string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

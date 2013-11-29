@@ -111,6 +111,7 @@ extern int currentUserID;
     }
     
     cell.skillLabel.text = [skills objectAtIndex:indexPath.row];
+    cell.ratee = _cname;
     
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[skills objectAtIndex:indexPath.row],@"skillname", [NSString stringWithFormat:@"%i", currentUserID], @"rater", _cname, @"ratee",nil];
     
@@ -154,47 +155,7 @@ extern int currentUserID;
 
 - (IBAction)Save:(id)sender
 {
-    //saves endorsement here
-    //for each skill in [skills]...search in endorsements and update member_skills table
-    for (SkillCell *skillc in skillsTableView.visibleCells) {
-        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", currentUserID], @"rater", _cname, @"ratee", skillc.skillLabel.text,@"skillname", skillc.resultLabel.text, @"rating", nil];
         
-        //delete and create new entry
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:[NSString stringWithFormat:@"http://localhost:8888/deleteendorsement.php?format=json"]
-          parameters:parameters
-             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             }
-             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                 UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 [av show];
-             }];
-        
-        [manager GET:[NSString stringWithFormat:@"http://localhost:8888/insertendorsement.php?format=json"]
-          parameters:parameters
-             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             }
-             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                 UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 [av show];
-             }];
-
-        
-        
-        //calculate member_skills - overall expertise rating here
-        [manager GET:[NSString stringWithFormat:@"http://localhost:8888/calculaterating.php?format=json"]
-          parameters:parameters
-             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             }
-             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                 UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving JSON" message:[NSString stringWithFormat:@"%@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 [av show];
-             }];
-
-
-        
-    }
-    
     
     
 }
